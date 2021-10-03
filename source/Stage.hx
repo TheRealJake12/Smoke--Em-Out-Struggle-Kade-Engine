@@ -450,6 +450,41 @@ class Stage extends MusicBeatState
 					swagBacks['stageFront'] = stageFront;
 					toAdd.push(stageFront);
 				}
+			case 'release':
+				{
+					camZoom = 0.9;
+					curStage = 'release';
+
+					var bg:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('garAlley/garStagebgAlt', 'shared'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var smoker:FlxSprite = new FlxSprite(0, -290);
+					smoker.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
+					smoker.setGraphicSize(Std.int(smoker.width * 1.7));
+					smoker.alpha = 0.3;
+					smoker.animation.addByPrefix('garsmoke', "smokey", 13);
+					smoker.animation.play('garsmoke');
+					smoker.scrollFactor.set(0.7, 0.7);
+					add(smoker);
+
+					var stageFront:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('garAlley/garStagealt', 'shared'));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+
+					var corpse:FlxSprite = new FlxSprite(-230, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
+					corpse.antialiasing = true;
+					corpse.scrollFactor.set(0.9, 0.9);
+					corpse.active = false;
+					add(corpse);
+				}	
 			default:
 				{
 					camZoom = 0.9;
