@@ -373,7 +373,7 @@ class PlayState extends MusicBeatState
 			case 'mom-car':
 				iconRPC = 'mom';
 		}
-
+		
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		if (isStoryMode)
 		{
@@ -436,6 +436,8 @@ class PlayState extends MusicBeatState
 		{
 			SONG.eventObjects = [new Song.Event("Init BPM", 0, SONG.bpm, "BPM Change")];
 		}
+
+
 
 		TimingStruct.clearTimings();
 
@@ -4482,6 +4484,14 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
+		if (SONG.song.toLowerCase() == 'release')
+			if (curStep == 838)
+			{
+				dad.animation.play('garTightBars');
+			}
+
+
+
 		#if FEATURE_LUAMODCHART
 		if (executeModchart && luaModchart != null)
 		{
@@ -4583,12 +4593,17 @@ class PlayState extends MusicBeatState
 				dad.playAnim('cheer', true);
 			}
 
+			if (curBeat % 209.75 == 212 && curSong == 'Release')
+			{
+				dad.playAnim('garTightBars', true);
+			}
+			
 			if (PlayStateChangeables.Optimize)
 				if (vocals.volume == 0 && !currentSection.mustHitSection)
 					vocals.volume = 1;
 		}
 	}
-
+	// Bonk! Think Fast Chucklenuts! :)
 	public var cleanedSong:SwagSong;
 
 	function poggers(?cleanTheSong = false)

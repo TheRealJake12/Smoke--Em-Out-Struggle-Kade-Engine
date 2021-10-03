@@ -462,7 +462,7 @@ class Stage extends MusicBeatState
 					swagBacks['bg'] = bg;
 					toAdd.push(bg);
 
-					var smoker:FlxSprite = new FlxSprite(0, -290);
+					var smoker:FlxSprite = new FlxSprite(0, 0);
 					smoker.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
 					smoker.setGraphicSize(Std.int(smoker.width * 1.7));
 					smoker.alpha = 0.3;
@@ -479,7 +479,7 @@ class Stage extends MusicBeatState
 					swagBacks['stageFront'] = stageFront;
 					toAdd.push(stageFront);
 
-					var corpse:FlxSprite = new FlxSprite(-230, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
+					var corpse:FlxSprite = new FlxSprite(-230, 170).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
 					corpse.antialiasing = true;
 					corpse.scrollFactor.set(0.9, 0.9);
 					corpse.active = false;

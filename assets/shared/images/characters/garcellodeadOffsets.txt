@@ -4,3 +4,4 @@ singRIGHT 0 0
 singLEFT 0 0
 singDOWN 0 0
 garTightBars 0 0
+garcello coolguy 0 0
