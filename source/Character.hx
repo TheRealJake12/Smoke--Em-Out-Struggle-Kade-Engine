@@ -218,16 +218,16 @@ class Character extends FlxSprite
 				flipX = true;
 
 			case 'garcello':
-				
 				tex = Paths.getSparrowAtlas('garcello_assets', 'shared', true);
 				frames = tex;
-				animation.addByPrefix('idle', 'garcello idle dance', 24, false);
-				animation.addByPrefix('singUP', 'garcello Sing Note UP', 24, false);
-				animation.addByPrefix('singRIGHT', 'garcello Sing Note RIGHT', 24, false);
-				animation.addByPrefix('singDOWN', 'garcello Sing Note DOWN', 24, false);
-				animation.addByPrefix('singLEFT', 'garcello Sing Note LEFT', 24, false);
+				animation.addByPrefix('idle', 'garcello idle dance', 24);
+				animation.addByPrefix('singUP', 'garcello Sing Note UP', 24);
+				animation.addByPrefix('singRIGHT', 'garcello Sing Note RIGHT', 24);
+				animation.addByPrefix('singDOWN', 'garcello Sing Note DOWN', 24);
+				animation.addByPrefix('singLEFT', 'garcello Sing Note LEFT', 24);
 
 				loadOffsetFile(curCharacter);
+
 				barColor = 0xFF8E40A5;
 
 				playAnim('idle');

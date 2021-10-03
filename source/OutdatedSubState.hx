@@ -23,14 +23,14 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('week54prototype', 'shared'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('garAlley/garStage', 'shared'));
 		bg.scale.x *= 1.55;
 		bg.scale.y *= 1.55;
 		bg.screenCenter();
 		bg.antialiasing = FlxG.save.data.antialiasing;
 		add(bg);
 
-		var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(Paths.image('KadeEngineLogo'));
+		var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(Paths.image('dalogo'));
 		kadeLogo.scale.y = 0.3;
 		kadeLogo.scale.x = 0.3;
 		kadeLogo.x -= kadeLogo.frameHeight;
@@ -40,15 +40,8 @@ class OutdatedSubState extends MusicBeatState
 		add(kadeLogo);
 
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
-			"Your Kade Engine is outdated!\nYou are on "
-			+ MainMenuState.kadeEngineVer
-			+ "\nwhile the most recent version is "
-			+ needVer
-			+ "."
-			+ "\n\nWhat's new:\n\n"
-			+ currChanges
-			+ "\n& more changes and bugfixes in the full changelog"
-			+ "\n\nPress Space to view the full changelog and update\nor ESCAPE to ignore this",
+			"I am once again saying\nthis is unofficial"
+			 + "\n\nPress ESC for to continue",
 			32);
 
 		if (MainMenuState.nightly != "")

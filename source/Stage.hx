@@ -431,6 +431,25 @@ class Stage extends MusicBeatState
 						add(waveSpriteFG);
 					 */
 				}
+			case 'garAlley':
+				{
+					camZoom = 0.9;
+					curStage = 'garAlley';
+					var bg:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('garAlley/garStagebg', 'shared'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('garAlley/garStage', 'shared'));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+				}
 			default:
 				{
 					camZoom = 0.9;
