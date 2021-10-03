@@ -26,11 +26,13 @@ class MenuCharacter extends FlxSprite
 		'bf' => new CharacterSetting(0, -20, 1.0, true),
 		'gf' => new CharacterSetting(50, 80, 1.5, true),
 		'dad' => new CharacterSetting(-15, 130),
+		'garcello' => new CharacterSetting(-15, 60),
 		'spooky' => new CharacterSetting(20, 30),
 		'pico' => new CharacterSetting(0, 0, 1.0, true),
 		'mom' => new CharacterSetting(-30, 140, 0.85),
 		'parents-christmas' => new CharacterSetting(100, 130, 1.8),
 		'senpai' => new CharacterSetting(-40, -45, 1.4)
+		
 	];
 
 	private var flipped:Bool = false;
@@ -59,6 +61,8 @@ class MenuCharacter extends FlxSprite
 		animation.addByPrefix('mom', "Mom Idle BLACK LINES", 24, false);
 		animation.addByPrefix('parents-christmas', "Parent Christmas Idle", 24, false);
 		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24, false);
+		animation.addByPrefix('garcello', "garcello idle", 24);
+
 
 		setGraphicSize(Std.int(width * scale));
 		updateHitbox();

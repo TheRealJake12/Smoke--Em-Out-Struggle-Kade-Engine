@@ -114,25 +114,32 @@ class TitleState extends MusicBeatState
 
 		if (Main.watermarks)
 		{
-			logoBl = new FlxSprite(-150, 1500);
-			logoBl.frames = Paths.getSparrowAtlas('KadeEngineLogoBumpin');
+			logoBl = new FlxSprite(-150, -100);
+			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+			logoBl.antialiasing = true;
+			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+			logoBl.animation.play('bump');
+			logoBl.updateHitbox();
+			// logoBl.screenCenter();
+			// logoBl.color = FlxColor.BLACK;
 		}
 		else
 		{
 			logoBl = new FlxSprite(-150, -100);
 			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+			logoBl.antialiasing = true;
+			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+			logoBl.animation.play('bump');
+			logoBl.updateHitbox();
+			// logoBl.screenCenter();
+			// logoBl.color = FlxColor.BLACK;;
 		}
-		logoBl.antialiasing = FlxG.save.data.antialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
-		logoBl.updateHitbox();
-		// logoBl.screenCenter();
-		// logoBl.color = FlxColor.BLACK;
 
-		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
+		gfDance = new FlxSprite(150, 100);
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
 		gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-		gfDance.antialiasing = FlxG.save.data.antialiasing;
+		gfDance.antialiasing = true;
 		add(gfDance);
 		add(logoBl);
 
@@ -168,7 +175,7 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
+		ngSpr = new FlxSprite(0, FlxG.height * 0.57).loadGraphic(Paths.image('garcello', 'shared'));
 		add(ngSpr);
 		ngSpr.visible = false;
 		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
@@ -201,10 +208,10 @@ class TitleState extends MusicBeatState
 			// https://github.com/HaxeFlixel/flixel-addons/pull/348
 
 			// var music:FlxSound = new FlxSound();
-			// music.loadStream(Paths.music('freakyMenu'));
+			// music.loadStream(Paths.music('releasecool'));
 			// FlxG.sound.list.add(music);
 			// music.play();
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			FlxG.sound.playMusic(Paths.music('releasecool'), 0);
 
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 			Conductor.changeBPM(102);
@@ -360,10 +367,10 @@ class TitleState extends MusicBeatState
 			case 0:
 				deleteCoolText();
 			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+				createCoolText(['atsuover', 'rageminer99' ]);
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('present');
+				addMoreText('check them out');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:
@@ -373,15 +380,15 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
+					createCoolText(['Haha smoke', 'go']);
 				else
 					createCoolText(['In Partnership', 'with']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
+					addMoreText('brrrrr');
 				else
 				{
-					addMoreText('Newgrounds');
+					addMoreText('garcello');
 					ngSpr.visible = true;
 				}
 			// credTextShit.text += '\nNewgrounds';
@@ -404,15 +411,19 @@ class TitleState extends MusicBeatState
 			// credTextShit.text = "Friday";
 			// credTextShit.screenCenter();
 			case 13:
-				addMoreText('Friday');
+				addMoreText('Smoke');
 			// credTextShit.visible = true;
 			case 14:
-				addMoreText('Night');
-			// credTextShit.text += '\nNight';
+				addMoreText('Em');
+			// credTextShit.text += '\Em';
 			case 15:
-				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
-
+				addMoreText('Out');
+			// credTextShit.text += '\nOut';
 			case 16:
+				addMoreText('Struggle'); // credTextShit.text += '\nStruggle';
+			case 17:
+				addMoreText('Plus'); // credTextShit.text += '\nPlus';
+			case 18:
 				skipIntro();
 		}
 	}

@@ -217,6 +217,72 @@ class Character extends FlxSprite
 
 				flipX = true;
 
+			case 'garcello':
+				
+				tex = Paths.getSparrowAtlas('garcello_assets', 'shared', true);
+				frames = tex;
+				animation.addByPrefix('idle', 'garcello idle dance', 24, false);
+				animation.addByPrefix('singUP', 'garcello Sing Note UP', 24, false);
+				animation.addByPrefix('singRIGHT', 'garcello Sing Note RIGHT', 24, false);
+				animation.addByPrefix('singDOWN', 'garcello Sing Note DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'garcello Sing Note LEFT', 24, false);
+
+				loadOffsetFile(curCharacter);
+				barColor = 0xFF8E40A5;
+
+				playAnim('idle');
+
+			case 'garcellotired':
+				tex = Paths.getSparrowAtlas('garcellotired_assets', 'shared', true);
+				frames = tex;
+				animation.addByPrefix('idle', 'garcellotired idle dance', 24, false);
+				animation.addByPrefix('singUP', 'garcellotired Sing Note UP', 24, false);
+				animation.addByPrefix('singRIGHT', 'garcellotired Sing Note RIGHT', 24, false);
+				animation.addByPrefix('singDOWN', 'garcellotired Sing Note DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'garcellotired Sing Note LEFT', 24, false);
+
+				animation.addByPrefix('singUP-alt', 'garcellotired Sing Note UP', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'garcellotired Sing Note RIGHT', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'garcellotired Sing Note LEFT', 24, false);
+				animation.addByPrefix('singDOWN-alt', 'garcellotired cough', 24, false);
+
+				loadOffsetFile(curCharacter);
+				barColor = 0xFF8E40A5;
+
+				playAnim('idle');
+
+			case 'garcellodead':
+				tex = Paths.getSparrowAtlas('garcellodead_assets', 'shared', true);
+				frames = tex;
+				animation.addByPrefix('idle', 'garcello idle dance', 24, false);
+				animation.addByPrefix('singUP', 'garcello Sing Note UP', 24, false);
+				animation.addByPrefix('singRIGHT', 'garcello Sing Note RIGHT', 24, false);
+				animation.addByPrefix('singDOWN', 'garcello Sing Note DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'garcello Sing Note LEFT', 24, false);
+
+				animation.addByPrefix('garTightBars', 'garcello coolguy', 15);
+
+				loadOffsetFile(curCharacter);
+				barColor = 0xFF8E40A5;
+
+				playAnim('idle');
+
+			case 'garcelloghosty':
+				tex = Paths.getSparrowAtlas('garcelloghosty_assets', 'shared', true);
+				frames = tex;
+				animation.addByPrefix('idle', 'garcello idle dance', 24, false);
+				animation.addByPrefix('singUP', 'garcello Sing Note UP', 24, false);
+				animation.addByPrefix('singRIGHT', 'garcello Sing Note RIGHT', 24, false);
+				animation.addByPrefix('singDOWN', 'garcello Sing Note DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'garcello Sing Note LEFT', 24, false);
+
+				animation.addByPrefix('garFarewell', 'garcello coolguy', 15);
+
+				loadOffsetFile(curCharacter);
+				barColor = 0xFF8E40A5;
+
+				playAnim('idle');
+
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('BOYFRIEND', 'shared', true);
 				frames = tex;

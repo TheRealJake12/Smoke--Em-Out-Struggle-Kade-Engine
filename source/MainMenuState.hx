@@ -27,7 +27,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'options'];
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -37,10 +37,10 @@ class MainMenuState extends MusicBeatState
 
 	public static var firstStart:Bool = true;
 
-	public static var nightly:String = "-prerelease";
+	public static var nightly:String = "";
 
-	public static var kadeEngineVer:String = "1.7.1" + nightly;
-	public static var gameVer:String = "0.2.7.1";
+	public static var kadeEngineVer:String = "1.8 Smoke 'Em Out Struggle" + nightly;
+	public static var gameVer:String = "0.2.8";
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -278,7 +278,7 @@ class MainMenuState extends MusicBeatState
 				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 			}
 
-			spr.animation.curAnim.frameRate = 24 * (60 / FlxG.save.data.fpsCap);
+			spr.animation.curAnim.frameRate = 60 * (60 / FlxG.save.data.fpsCap);
 
 			spr.updateHitbox();
 		});

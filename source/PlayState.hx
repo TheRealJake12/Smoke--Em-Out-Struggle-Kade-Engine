@@ -882,7 +882,7 @@ class PlayState extends MusicBeatState
 		if (FlxG.save.data.colour)
 			healthBar.createFilledBar(dad.barColor, boyfriend.barColor);
 		else
-			healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
+			healthBar.createFilledBar(0xFF8E40A5, 0xFF66FF33);
 		// healthBar
 		add(healthBar);
 
