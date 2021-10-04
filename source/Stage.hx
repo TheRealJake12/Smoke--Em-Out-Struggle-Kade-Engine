@@ -462,13 +462,16 @@ class Stage extends MusicBeatState
 					swagBacks['bg'] = bg;
 					toAdd.push(bg);
 
-					var smoker:FlxSprite = new FlxSprite(0, 0);
+					var smoker:FlxSprite = new FlxSprite(0, -290);
 					smoker.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
 					smoker.setGraphicSize(Std.int(smoker.width * 1.7));
 					smoker.alpha = 0.3;
 					smoker.animation.addByPrefix('garsmoke', "smokey", 13);
 					smoker.animation.play('garsmoke');
 					smoker.scrollFactor.set(0.7, 0.7);
+					swagBacks['smoker'] = smoker;
+					toAdd.push(smoker);
+
 					add(smoker);
 
 					var stageFront:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('garAlley/garStagealt', 'shared'));
@@ -479,12 +482,40 @@ class Stage extends MusicBeatState
 					swagBacks['stageFront'] = stageFront;
 					toAdd.push(stageFront);
 
-					var corpse:FlxSprite = new FlxSprite(-230, 170).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
-					corpse.antialiasing = true;
+					var corpse:FlxSprite = new FlxSprite(-230, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
+					corpse.antialiasing = FlxG.save.data.antialiasing;
 					corpse.scrollFactor.set(0.9, 0.9);
 					corpse.active = false;
-					add(corpse);
-				}	
+					swagBacks['corpse'] = corpse;
+					toAdd.push(corpse);
+				}
+			case 'fading':
+				{
+					camZoom = 0.9;
+					curStage = 'fading';
+
+					var bg:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('garAlley/garStagebgRise', 'shared'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-500, -200).loadGraphic(Paths.image('garAlley/garStageRise', 'shared'));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+
+					var corpse:FlxSprite = new FlxSprite(-230, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
+					corpse.antialiasing = FlxG.save.data.antialiasing;
+					corpse.scrollFactor.set(0.9, 0.9);
+					corpse.active = false;
+					swagBacks['corpse'] = corpse;
+					toAdd.push(corpse);
+				}
 			default:
 				{
 					camZoom = 0.9;

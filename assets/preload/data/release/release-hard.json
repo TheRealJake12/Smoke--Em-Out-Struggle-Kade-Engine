@@ -2915,6 +2915,13 @@
       0,
       false,
       171
+     ],
+     [
+      85625,
+      3,
+      0,
+      false,
+      171.25
      ]
     ],
     "lengthInSteps": 16,
@@ -3071,9 +3078,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 86000,
     "changeBPM": false,
-    "bpm": 120,
-    "startTime": 86000
+    "bpm": 120
    },
    {
     "endTime": 90000,
@@ -3174,9 +3181,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 88000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 88000
+    "bpm": 100
    },
    {
     "endTime": 92000,
@@ -3256,9 +3263,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 90000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 90000
+    "bpm": 100
    },
    {
     "endTime": 94000,
@@ -3338,9 +3345,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 92000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 92000
+    "bpm": 100
    },
    {
     "endTime": 96000,
@@ -3385,9 +3392,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 94000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 94000
+    "bpm": 100
    },
    {
     "endTime": 98000,
@@ -3404,9 +3411,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 96000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 96000
+    "bpm": 100
    },
    {
     "endTime": 100000,
@@ -3479,9 +3486,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 98000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 98000
+    "bpm": 100
    },
    {
     "endTime": 102000,
@@ -3561,9 +3568,9 @@
       203.5
      ]
     ],
+    "startTime": 100000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 100000
+    "changeBPM": false
    },
    {
     "endTime": 104000,
@@ -3608,9 +3615,9 @@
       207
      ]
     ],
+    "startTime": 102000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 102000
+    "changeBPM": false
    },
    {
     "endTime": 106000,
@@ -3738,9 +3745,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 106000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 106000
+    "bpm": 100
    },
    {
     "endTime": 110000,
@@ -3848,9 +3855,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 108000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 108000
+    "bpm": 100
    },
    {
     "endTime": 112000,
@@ -3958,9 +3965,9 @@
       223.5
      ]
     ],
+    "startTime": 110000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 110000
+    "changeBPM": false
    },
    {
     "endTime": 114000,
@@ -4068,9 +4075,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 112000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 112000
+    "bpm": 100
    },
    {
     "endTime": 116000,
@@ -4178,9 +4185,9 @@
       231.5
      ]
     ],
+    "startTime": 114000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 114000
+    "changeBPM": false
    },
    {
     "endTime": 118000,
@@ -4274,9 +4281,9 @@
       235.5
      ]
     ],
+    "startTime": 116000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 116000
+    "changeBPM": false
    },
    {
     "endTime": 120000,
@@ -4391,9 +4398,9 @@
       239.5
      ]
     ],
+    "startTime": 118000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 118000
+    "changeBPM": false
    },
    {
     "endTime": 122000,
@@ -4487,9 +4494,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 120000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 120000
+    "bpm": 100
    },
    {
     "endTime": 124000,
@@ -4597,9 +4604,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 122000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 122000
+    "bpm": 100
    },
    {
     "endTime": 126000,
@@ -4707,9 +4714,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 124000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 124000
+    "bpm": 100
    },
    {
     "endTime": 128000,
@@ -4859,9 +4866,9 @@
       255.5
      ]
     ],
+    "startTime": 126000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 126000
+    "changeBPM": false
    },
    {
     "endTime": 130000,
@@ -4913,9 +4920,9 @@
       257
      ]
     ],
+    "startTime": 128000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 128000
+    "changeBPM": false
    },
    {
     "endTime": 132000,
@@ -4995,9 +5002,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 130000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 130000
+    "bpm": 100
    },
    {
     "endTime": 134000,
@@ -5119,9 +5126,9 @@
       267.5
      ]
     ],
+    "startTime": 132000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 132000
+    "changeBPM": false
    },
    {
     "endTime": 136000,
@@ -5264,9 +5271,9 @@
       271.5
      ]
     ],
+    "startTime": 134000,
     "bpm": 100,
-    "changeBPM": false,
-    "startTime": 134000
+    "changeBPM": false
    },
    {
     "endTime": 138000,
@@ -5318,9 +5325,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 136000,
     "changeBPM": false,
-    "bpm": 100,
-    "startTime": 136000
+    "bpm": 100
    },
    {
     "endTime": 140000,
@@ -5456,9 +5463,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 138000,
     "changeBPM": false,
-    "bpm": 120,
-    "startTime": 138000
+    "bpm": 120
    },
    {
     "endTime": 142000,
@@ -5482,9 +5489,9 @@
     ],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 140000,
     "changeBPM": false,
-    "bpm": 120,
-    "startTime": 140000
+    "bpm": 120
    },
    {
     "endTime": 144000,
@@ -5493,20 +5500,22 @@
     "sectionNotes": [],
     "typeOfSection": 0,
     "lengthInSteps": 16,
+    "startTime": 142000,
     "changeBPM": false,
-    "bpm": 120,
-    "startTime": 142000
+    "bpm": 120
    },
    {
     "endTime": 146000,
+    "playerAltAnim": false,
     "altAnim": false,
+    "CPUAltAnim": false,
     "mustHitSection": true,
-    "sectionNotes": [],
-    "typeOfSection": 0,
     "lengthInSteps": 16,
-    "changeBPM": false,
+    "typeOfSection": 0,
+    "sectionNotes": [],
     "bpm": 120,
-    "startTime": 144000
+    "startTime": 144000,
+    "changeBPM": false
    }
   ],
   "player2": "garcellodead",

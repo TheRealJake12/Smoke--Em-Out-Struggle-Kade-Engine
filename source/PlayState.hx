@@ -1,5 +1,6 @@
 package;
 
+import Conductor.BPMChangeEvent;
 #if FEATURE_LUAMODCHART
 import LuaClass.LuaCamera;
 import LuaClass.LuaCharacter;
@@ -4484,12 +4485,12 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
-		if (SONG.song.toLowerCase() == 'release')
+		if (curStep == 838 && curSong == 'Release')
 			if (curStep == 838)
 			{
 				dad.animation.play('garTightBars');
 			}
-
+			
 
 
 		#if FEATURE_LUAMODCHART
@@ -4587,16 +4588,13 @@ class PlayState extends MusicBeatState
 				boyfriend.playAnim('hey', true);
 			}
 
+
 			if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 			{
 				boyfriend.playAnim('hey', true);
 				dad.playAnim('cheer', true);
 			}
 
-			if (curBeat % 209.75 == 212 && curSong == 'Release')
-			{
-				dad.playAnim('garTightBars', true);
-			}
 			
 			if (PlayStateChangeables.Optimize)
 				if (vocals.volume == 0 && !currentSection.mustHitSection)
