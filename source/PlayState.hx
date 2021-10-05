@@ -4484,15 +4484,19 @@ class PlayState extends MusicBeatState
 		{
 			resyncVocals();
 		}
-
+		// right here lols 
 		if (curStep == 838 && curSong == 'Release')
 			if (curStep == 838)
 			{
-				dad.animation.play('garTightBars');
+				dad.playAnim('garTightBars', true); //otherwise idle overrules it
 			}
+			// HOLY SHIT IT FUCKING WORKED
+			//ima leave that comment there for people looking at the code lol
+			//if you do swap to 1.7 I got a commit for it that doesnt add mod support but has the fixed notes
+			//and if you go to optionsMenu thers a custom catagory I made
 			
-
-
+			//:D ggs
+			// not so ez lol
 		#if FEATURE_LUAMODCHART
 		if (executeModchart && luaModchart != null)
 		{

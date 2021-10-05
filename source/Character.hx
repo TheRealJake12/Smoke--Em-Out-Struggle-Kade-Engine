@@ -582,6 +582,22 @@ class Character extends FlxSprite
 						if (!animation.curAnim.name.endsWith('custom animation'))
 							playAnim('idle', forced);
 				 */
+
+				 case 'garcellodead':
+				 	if (animation.curAnim.name.startsWith('garTightBars')) {
+						return;
+					}
+					else {
+						playAnim('idle', forced);
+					}
+					//i dont have all the assets for the accelerant thingy cause they didn't open source the vs online mod :(	
+					// when no open source : >:(
+					//true they did give the hank assets at least, but that's it :|
+					//lol
+					//did it build? awesome...pls work lmao
+					//lol
+					// have a look at the other code if u want
+					//the new stage code
 				default:
 					if (altAnim && animation.getByName('idle-alt') != null)
 						playAnim('idle-alt', forced);

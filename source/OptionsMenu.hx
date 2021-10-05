@@ -58,7 +58,11 @@ class OptionsMenu extends MusicBeatState
 			new AntialiasingOption("Anti-Aliasing makes things look smoother but uses a bit of performance."),
 			new Optimization("Nothing but Your Strumline is visible. Best Performance."),
 			new GraphicLoading("Caches every character in assets/shared/characters. Loading times greatly increased. (HIGH MEMORY!!!)"),
-		]),
+		]), //lol I took all the other options and put them in their own catagory -1
+		//have fun coding-2
+		//u too thanks for the help im spid-1 
+		//i'm spid... lmao -2
+		//im leaving that here -1
 		new OptionCategory("Misc", [
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
