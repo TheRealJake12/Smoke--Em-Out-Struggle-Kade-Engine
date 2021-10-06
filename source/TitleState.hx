@@ -422,8 +422,6 @@ class TitleState extends MusicBeatState
 			case 16:
 				addMoreText('Struggle'); // credTextShit.text += '\nStruggle';
 			case 17:
-				addMoreText('Plus'); // credTextShit.text += '\nPlus';
-			case 18:
 				skipIntro();
 		}
 	}

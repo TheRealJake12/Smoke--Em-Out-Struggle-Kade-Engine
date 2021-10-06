@@ -1,5 +1,5 @@
 package;
-
+// do ctrl + f and look for Function headache and it
 import Conductor.BPMChangeEvent;
 #if FEATURE_LUAMODCHART
 import LuaClass.LuaCamera;
@@ -476,6 +476,8 @@ class PlayState extends MusicBeatState
 		{
 			// if the song has dialogue, so we don't accidentally try to load a nonexistant file and crash the game
 			case 'senpai' | 'roses' | 'thorns':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/$songLowercase/dialogue'));
+			case 'headache' | 'nerves' | 'release' | 'fading':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/$songLowercase/dialogue'));
 		}
 
@@ -1010,6 +1012,14 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
+				case 'headache':
+					garIntro(doof);
+				case 'nerves':
+					garIntro(doof);
+				case 'release':
+					garIntro(doof);
+				case 'fading':
+					 schoolIntro(doof);
 				default:
 					new FlxTimer().start(1, function(timer)
 					{
@@ -1060,7 +1070,7 @@ class PlayState extends MusicBeatState
 				add(red);
 			}
 		}
-
+	
 		new FlxTimer().start(0.3, function(tmr:FlxTimer)
 		{
 			black.alpha -= 0.15;
@@ -1116,6 +1126,17 @@ class PlayState extends MusicBeatState
 				remove(black);
 			}
 		});
+	}
+
+	function garIntro(?dialogueBox:DialogueBox):Void
+	{
+		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+		black.scrollFactor.set();
+		add(black);
+
+		var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+		red.scrollFactor.set();	
+	
 	}
 
 	var startTimer:FlxTimer;
@@ -4484,19 +4505,36 @@ class PlayState extends MusicBeatState
 		{
 			resyncVocals();
 		}
-		// right here lols 
+	
 		if (curStep == 838 && curSong == 'Release')
 			if (curStep == 838)
 			{
-				dad.playAnim('garTightBars', true); //otherwise idle overrules it
+				dad.playAnim('garTightBars', true);
 			}
-			// HOLY SHIT IT FUCKING WORKED
-			//ima leave that comment there for people looking at the code lol
-			//if you do swap to 1.7 I got a commit for it that doesnt add mod support but has the fixed notes
-			//and if you go to optionsMenu thers a custom catagory I made
-			
-			//:D ggs
-			// not so ez lol
+		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'fading')
+		{
+			if (curStep == 247)
+			{
+				dad.playAnim('garFarewell', true);
+			}
+		}
+
+		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'fading')
+		{
+			if (curStep == 240)
+			{
+				new FlxTimer().start(0.1, function(tmr:FlxTimer)
+				{
+					dad.alpha -= 0.05;
+					iconP2.alpha -= 0.05;
+
+					if (dad.alpha > 0)
+					{
+						tmr.reset(0.1);
+					}
+				});
+			}
+		}
 		#if FEATURE_LUAMODCHART
 		if (executeModchart && luaModchart != null)
 		{

@@ -488,6 +488,21 @@ class Stage extends MusicBeatState
 					corpse.active = false;
 					swagBacks['corpse'] = corpse;
 					toAdd.push(corpse);
+
+					if (curStage == 'release')
+		{
+					var smoke:FlxSprite = new FlxSprite(0, 0);
+					smoke.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
+					smoke.setGraphicSize(Std.int(smoke.width * 1.6));
+					smoke.animation.addByPrefix('garsmoke', "smokey", 15);
+					smoke.animation.play('garsmoke');
+					smoke.alpha = 0.3;
+					smoke.animation.addByPrefix('garsmoke', "smokey", 13);
+					smoke.animation.play('garsmoke');
+					smoke.scrollFactor.set(0.7, 0.7);
+					swagBacks['smoke'] = smoker;
+					toAdd.push(smoke);
+		}
 				}
 			case 'fading':
 				{
