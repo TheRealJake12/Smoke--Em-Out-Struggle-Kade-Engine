@@ -8,7 +8,13 @@ this is a little project of porting over everything to kade engine 1.7
 
 I am aware that Kade Engine 1.7 is broken but there is a fix
 I am using a commit that has no laggy arrows
-theres also a luacharacter.cpp bug and heres how to fix it
+
+
+
+
+==========================================================================================
+ONLY DO THIS IF THERES A LUACHARACTER.CPP BUG OR CRASH WHEN ASSETS LOADED ARE AT 9/10 etc.
+==========================================================================================
 
 haxelib remove linc_luajit
 
