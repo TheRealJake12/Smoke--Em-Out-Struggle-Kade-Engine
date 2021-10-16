@@ -93,32 +93,32 @@ class DialogueBox extends FlxSpriteGroup
 			case 'headache':
 				hasDialog = true;
 
-				box.frames = Paths.getSparrowAtlas('garAlley/garBox');
+				box.frames = Paths.getSparrowAtlas('garAlley/garBox', 'shared');
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
 			case 'nerves':
 				hasDialog = true;
-				FlxG.sound.play(Paths.sound('garWeak'));
+				FlxG.sound.play(Paths.sound('garWeak', 'shared'));
 
-				box.frames = Paths.getSparrowAtlas('garAlley/garBox');
+				box.frames = Paths.getSparrowAtlas('garAlley/garBox', 'shared');
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
 			case 'release':
 				hasDialog = true;
 
-				box.frames = Paths.getSparrowAtlas('garAlley/garBox');
+				box.frames = Paths.getSparrowAtlas('garAlley/garBox', 'shared');
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
 			case 'fading':
 				hasDialog = true;
 				
-				box.frames = Paths.getSparrowAtlas('garAlley/garBox');
+				box.frames = Paths.getSparrowAtlas('garAlley/garBox', 'shared');
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
 			case 'releasecool':
 				hasDialog = true;
 
-				box.frames = Paths.getSparrowAtlas('garAlley/garBox');
+				box.frames = Paths.getSparrowAtlas('garAlley/garBox', 'shared');
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
 		}
@@ -142,7 +142,7 @@ class DialogueBox extends FlxSpriteGroup
 		else if (PlayState.SONG.song.toLowerCase()=='headache')
 		{
 		portraitLeft = new FlxSprite(130, 100);
-		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue');
+		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 		portraitLeft.animation.addByPrefix('enter', 'gar Default', 24, false);
 		// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
 		portraitLeft.antialiasing = true;
@@ -154,7 +154,7 @@ class DialogueBox extends FlxSpriteGroup
 		else if (PlayState.SONG.song.toLowerCase()=='nerves')
 		{
 		portraitLeft = new FlxSprite(130, 100);
-		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue');
+		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 		portraitLeft.animation.addByPrefix('enter', 'gar Nervous', 24, false);
 		// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
 		portraitLeft.antialiasing = true;
@@ -166,7 +166,7 @@ class DialogueBox extends FlxSpriteGroup
 		else if (PlayState.SONG.song.toLowerCase()=='release')
 		{
 		portraitLeft = new FlxSprite(130, 100);
-		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue');
+		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 		portraitLeft.animation.addByPrefix('enter', 'gar Ghost', 24, false);
 		// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
 		portraitLeft.antialiasing = true;
@@ -178,7 +178,7 @@ class DialogueBox extends FlxSpriteGroup
 		else if (PlayState.SONG.song.toLowerCase()=='fading')
 		{
 		portraitLeft = new FlxSprite(130, 100);
-		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue');
+		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 		portraitLeft.animation.addByPrefix('enter', 'gar Dippy', 24, false);
 		// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
 		portraitLeft.antialiasing = true;
@@ -190,7 +190,7 @@ class DialogueBox extends FlxSpriteGroup
 		else if (PlayState.SONG.song.toLowerCase()=='releasecool')
 		{
 		portraitLeft = new FlxSprite(130, 100);
-		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue');
+		portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 		portraitLeft.animation.addByPrefix('enter', 'gar Ghost', 24, false);
 		// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
 		portraitLeft.antialiasing = true;
@@ -214,7 +214,7 @@ class DialogueBox extends FlxSpriteGroup
 		else if (PlayState.SONG.song.toLowerCase()=='headache' || PlayState.SONG.song.toLowerCase()=='nerves' || PlayState.SONG.song.toLowerCase()=='release' || PlayState.SONG.song.toLowerCase()=='fading' || PlayState.SONG.song.toLowerCase()=='releasecool')
 		{
 		portraitRight = new FlxSprite(770, 200);
-		portraitRight.frames = Paths.getSparrowAtlas('garAlley/bf_norm');
+		portraitRight.frames = Paths.getSparrowAtlas('garAlley/bf_norm', 'shared');
 		portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait Enter', 24, false);
 		// portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.4));
 		portraitRight.antialiasing = true;
@@ -373,34 +373,6 @@ class DialogueBox extends FlxSpriteGroup
 		switch (curCharacter)
 		{
 			case 'dad':
-				portraitRight.visible = false;
-				if (!portraitLeft.visible)
-				{
-					portraitLeft.visible = true;
-					portraitLeft.animation.play('enter');
-				}
-			case 'gar':
-				portraitRight.visible = false;
-				if (!portraitLeft.visible)
-				{
-					portraitLeft.visible = true;
-					portraitLeft.animation.play('enter');
-				}
-			case 'gart':
-				portraitRight.visible = false;
-				if (!portraitLeft.visible)
-				{
-					portraitLeft.visible = true;
-					portraitLeft.animation.play('enter');
-				}
-			case 'gard':
-				portraitRight.visible = false;
-				if (!portraitLeft.visible)
-				{
-					portraitLeft.visible = true;
-					portraitLeft.animation.play('enter');
-				}
-			case 'garf':
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{

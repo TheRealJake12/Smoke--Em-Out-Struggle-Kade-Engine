@@ -1,16 +1,16 @@
 :bf:beep
-:gar:What's up, little man?
-:gar:Did the smoke catch your attention?
+:dad:What's up, little man?
+:dad:Did the smoke catch your attention?
 :bf:bee bop
-:gar:Yeah, it's pretty cool. You should try it out.
+:dad:Yeah, it's pretty cool. You should try it out.
 :bf:beep bo
-:gar:Are ya sure? Come on...
+:dad:Are ya sure? Come on...
 :bf:beep bo
-:gar:Hm...
-:gar:Tell you what.
-:gar:If you beat me in a friendly little rap battle, I'll get off your case.
-:gar:Sound cool, little man?
+:dad:Hm...
+:dad:Tell you what.
+:dad:If you beat me in a friendly little rap battle, I'll get off your case.
+:dad:Sound cool, little man?
 :bf:beep bo bop!
-:gar:Heh, that got you hyped up. It's settled then.
-:gar:As long as you don't mind me smoking a bit. 
-:gar:Helps calm the nerves, y'know?
+:dad:Heh, that got you hyped up. It's settled then.
+:dad:As long as you don't mind me smoking a bit. 
+:dad:Helps calm the nerves, y'know?

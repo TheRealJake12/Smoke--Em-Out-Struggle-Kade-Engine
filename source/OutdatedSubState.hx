@@ -32,7 +32,8 @@ class OutdatedSubState extends MusicBeatState
 
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
 			"I am once again saying\nthis is unofficial"
-			 + "\n\nPress ESC for to continue",
+			 + "\n\nPress ESC to continue"
+			  + "\n\nPress ENTER for the source code for this.",
 			32);
 
 		if (MainMenuState.nightly != "")
@@ -52,7 +53,7 @@ class OutdatedSubState extends MusicBeatState
 	{
 		if (controls.ACCEPT && MainMenuState.nightly == "")
 		{
-			fancyOpenURL("https://kadedev.github.io/Kade-Engine/changelogs/changelog-" + needVer);
+			fancyOpenURL("https://github.com/TheRealJake12/Smoke--Em-Out-Struggle-Kade-Engine.git");
 		}
 		else if (controls.ACCEPT)
 		{
