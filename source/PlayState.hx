@@ -1,5 +1,6 @@
 package;
 // do ctrl + f and look for Function headache and it
+import Options.CpuStrums;
 import Conductor.BPMChangeEvent;
 #if FEATURE_LUAMODCHART
 import LuaClass.LuaCamera;
@@ -735,6 +736,8 @@ class PlayState extends MusicBeatState
 		if (PlayStateChangeables.useDownscroll)
 			strumLine.y = FlxG.height - 165;
 
+	
+
 		strumLineNotes = new FlxTypedGroup<StaticArrow>();
 		add(strumLineNotes);
 
@@ -743,7 +746,7 @@ class PlayState extends MusicBeatState
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
-
+		
 		// startCountdown();
 
 		if (SONG.song == null)
@@ -1135,17 +1138,9 @@ class PlayState extends MusicBeatState
 		black.scrollFactor.set();
 		add(black);
 
-		var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-		red.scrollFactor.set();
-
 		if (SONG.song.toLowerCase() == 'nerves' || SONG.song.toLowerCase() == 'release')
 		{
 			remove(black);
-
-			if (SONG.song.toLowerCase() == 'release')
-			{
-				add(red);
-			}
 		}
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
@@ -3144,7 +3139,9 @@ class PlayState extends MusicBeatState
 							daNote.alpha = playerStrums.members[Math.floor(Math.abs(daNote.noteData))].alpha;
 					}
 					daNote.modAngle = strumLineNotes.members[Math.floor(Math.abs(daNote.noteData))].modAngle;
+					
 				}
+
 
 				if (daNote.isSustainNote)
 				{
@@ -3523,25 +3520,28 @@ class PlayState extends MusicBeatState
 						FlxG.sound.play(Paths.sound('Lights_Shut_off'));
 					}
 
-					//FlxTransitionableState.skipNextTransIn = true;
-					//FlxTransitionableState.skipNextTransOut = true;
+					// FlxTransitionableState.skipNextTransIn = true;
+					// FlxTransitionableState.skipNextTransOut = true;
+
+					var video:MP4Handler = new MP4Handler();
 
 					if (curSong == 'nerves')
 					{
-						FlxG.switchState(new CutsceneState());
+						video.playMP4(Paths.video('dies'));
+						video.finishCallback = function()
+						{
+							LoadingState.loadAndSwitchState(new PlayState());
+						}
 					}
-
 					prevCamFollow = camFollow;
 
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
-					LoadingState.loadAndSwitchState(new PlayState(), true);
+					LoadingState.loadAndSwitchState(new PlayState());
 					clean();
-				};
+				}
 			}
-		
-	
 			else
 			{
 				trace('WENT BACK TO FREEPLAY??');

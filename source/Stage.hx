@@ -462,7 +462,7 @@ class Stage extends MusicBeatState
 					swagBacks['bg'] = bg;
 					toAdd.push(bg);
 
-					var smoker:FlxSprite = new FlxSprite(0, 100);
+					var smoker:FlxSprite = new FlxSprite(0, 500);
 					smoker.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
 					smoker.setGraphicSize(Std.int(smoker.width * 1.7));
 					smoker.alpha = 0.3;
@@ -489,10 +489,8 @@ class Stage extends MusicBeatState
 					corpse.active = false;
 					swagBacks['corpse'] = corpse;
 					toAdd.push(corpse);
-
-					if (curStage == 'release')
-		{
-					var smoke:FlxSprite = new FlxSprite(0,100);
+		
+					var smoke:FlxSprite = new FlxSprite(0, 100);
 					smoke.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
 					smoke.setGraphicSize(Std.int(smoke.width * 1.6));
 					smoke.animation.addByPrefix('garsmoke', "smokey", 15);
@@ -506,7 +504,7 @@ class Stage extends MusicBeatState
 						swagBacks['smoke'] = smoke;
 						toAdd.push(smoke);
 					}
-		}
+		
 				}
 			case 'fading':
 				{

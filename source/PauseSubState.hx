@@ -41,12 +41,9 @@ class PauseSubState extends MusicBeatSubstate
 				GlobalVideo.get().pause();
 		}
 
-		
-
 		pauseMusic = new FlxSound().loadEmbedded(Paths.music('paused'), true, true);
 		pauseMusic.volume = 0;
 		pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
-		FlxG.sound.music.time = 5.000; // 5.0 seconds == 5.000
 
 		FlxG.sound.list.add(pauseMusic);
 
@@ -244,7 +241,6 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.stageTesting = false;
 				case "Options":
 					FlxG.switchState(new OptionsMenu());
-
 				case "Exit to menu":
 					PlayState.startTime = 0;
 					if (PlayState.instance.useVideo)
@@ -298,7 +294,7 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		curSelected += change;
 
-		FlxG.sound.play(Paths.sound('Generic_Text', 'shared'), 0.4);
+		FlxG.sound.play(Paths.sound('Soft_Click', 'shared'), 0.4);
 
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;

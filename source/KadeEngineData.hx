@@ -115,6 +115,7 @@ class KadeEngineData
 		if (FlxG.save.data.cacheImages == null)
 			FlxG.save.data.cacheImages = false;
 
+
 		if (FlxG.save.data.editorBG == null)
 			FlxG.save.data.editor = false;
 

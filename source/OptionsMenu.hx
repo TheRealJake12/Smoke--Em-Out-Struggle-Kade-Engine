@@ -47,7 +47,7 @@ class OptionsMenu extends MusicBeatState
 			new Colour("The color behind icons now fit with their theme. (e.g. Pico = green)"),
 			new NPSDisplayOption("Shows your current Notes Per Second on the info bar."),
 			new RainbowFPSOption("Make the FPS Counter flicker through rainbow colors."),
-			new CpuStrums("Toggle the CPU's strumline lighting up when it hits a note."),
+			new CpuStrums("Toggle the CPU's strumline lighting up when it hits a note.")
 		]),
 		new OptionCategory("Performance", [
 			new FPSOption("Toggle the FPS Counter"),
@@ -57,8 +57,9 @@ class OptionsMenu extends MusicBeatState
 			new EditorRes("Performance Using the Chart Editior greatly increased when this is off."),
 			new AntialiasingOption("Anti-Aliasing makes things look smoother but uses a bit of performance."),
 			new Optimization("Nothing but Your Strumline is visible. Best Performance."),
-			new GraphicLoading("Caches every character in assets/shared/characters. Loading times greatly increased. (HIGH MEMORY!!!)"),
-		]), //lol I took all the other options and put them in their own catagory -1
+			new GraphicLoading("Caches every character in assets/shared/characters. Loading times greatly decreased. (HIGH MEMORY!!!)")
+		]),
+		 //lol I took all the other options and put them in their own catagory -1
 		//have fun coding-2
 		//u too thanks for the help im spid-1 
 		//i'm spid... lmao -2
@@ -66,9 +67,12 @@ class OptionsMenu extends MusicBeatState
 		new OptionCategory("Misc", [
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
-			new MissSoundsOption("Toggle miss sounds playing when you don't hit a note."), new ScoreScreen("Show the score screen after the end of a song"),
+			new MissSoundsOption("Toggle miss sounds playing when you don't hit a note."), 
+			new ScoreScreen("Show the score screen after the end of a song"),
 			new ShowInput("Display every single input on the score screen."),
-			new BotPlay("Showcase your charts and mods with autoplay.")]),
+			new BotPlay("Showcase your charts and mods with autoplay.")
+		]),
+
 		new OptionCategory("Saves and Data", [
 			#if desktop // new ReplayOption("View saved song replays."),
 			#end
