@@ -3523,14 +3523,15 @@ class PlayState extends MusicBeatState
 					// FlxTransitionableState.skipNextTransIn = true;
 					// FlxTransitionableState.skipNextTransOut = true;
 
-					var video:MP4Handler = new MP4Handler();
-
-					if (curSong == 'nerves')
+					if (SONG.song.toLowerCase() == 'nerves')
 					{
+						var video:MP4Handler = new MP4Handler();
+
 						video.playMP4(Paths.video('dies'));
 						video.finishCallback = function()
 						{
 							LoadingState.loadAndSwitchState(new PlayState());
+							clean();
 						}
 					}
 					prevCamFollow = camFollow;

@@ -376,15 +376,18 @@ class StoryMenuState extends MusicBeatState
 			var video:MP4Handler = new MP4Handler();
 
 			if (curWeek == 0 && !isCutscene) // Checks if the current week is garAlley.
+			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				video.playMP4(Paths.video('intro'));
-				video.finishCallback = function()
 				{
-					LoadingState.loadAndSwitchState(new PlayState());
+					video.playMP4(Paths.video('intro'));
+					video.finishCallback = function()
+					{
+						LoadingState.loadAndSwitchState(new PlayState());
+					}
+					
+					isCutscene = true;
 				}
-				
-				isCutscene = true;
-			}
+			});
 			else
 			{
 				new FlxTimer().start(1, function(tmr:FlxTimer)
