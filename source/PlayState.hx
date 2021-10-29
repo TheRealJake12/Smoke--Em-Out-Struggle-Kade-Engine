@@ -3531,7 +3531,6 @@ class PlayState extends MusicBeatState
 						video.finishCallback = function()
 						{
 							LoadingState.loadAndSwitchState(new PlayState());
-							clean();
 						}
 						isCutscene = true;
 					}
