@@ -224,6 +224,8 @@ class PlayState extends MusicBeatState
 
 	var talking:Bool = true;
 
+	var video:MP4Handler = new MP4Handler();
+
 	var isCutscene:Bool = false;
 
 	public var songScore:Int = 0;
@@ -3523,24 +3525,25 @@ class PlayState extends MusicBeatState
 					// FlxTransitionableState.skipNextTransIn = true;
 					// FlxTransitionableState.skipNextTransOut = true;
 
-					if (SONG.song.toLowerCase() == 'nerves')
+					if (curSong == 'Nerves' && !isCutscene)
 					{
-						var video:MP4Handler = new MP4Handler();
-
 						video.playMP4(Paths.video('dies'));
 						video.finishCallback = function()
 						{
 							LoadingState.loadAndSwitchState(new PlayState());
 							clean();
 						}
+						isCutscene = true;
+					}
+					else
+					{
+						LoadingState.loadAndSwitchState(new PlayState());
+						clean();
 					}
 					prevCamFollow = camFollow;
 
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
-
-					LoadingState.loadAndSwitchState(new PlayState());
-					clean();
 				}
 			}
 			else
