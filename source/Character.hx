@@ -594,8 +594,8 @@ class Character extends FlxSprite
 				 	if (animation.curAnim.name.startsWith('garFarewell')) {
 						return;
 					}
-					else {
-						playAnim('idle', forced);
+					else if (animation.curAnim.name.startsWith('garcello coolguy')) {
+						return;
 					}
 				default:
 					if (altAnim && animation.getByName('idle-alt') != null)

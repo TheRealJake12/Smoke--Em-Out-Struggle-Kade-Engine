@@ -1,5 +1,5 @@
 package;
-// do ctrl + f and look for Function headache and it
+
 import Options.CpuStrums;
 import Conductor.BPMChangeEvent;
 #if FEATURE_LUAMODCHART
@@ -1026,7 +1026,7 @@ class PlayState extends MusicBeatState
 				case 'release':
 					garIntro(doof);
 				case 'fading':
-					 schoolIntro(doof);
+					 garIntro(doof);
 				default:
 					new FlxTimer().start(1, function(timer)
 					{
@@ -4557,15 +4557,15 @@ class PlayState extends MusicBeatState
 			{
 				dad.playAnim('garTightBars', true);
 			}
-		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'fading')
+		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'Fading')
 		{
 			if (curStep == 247)
 			{
 				dad.playAnim('garFarewell', true);
 			}
 		}
-
-		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'fading')
+		
+		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'Fading')
 		{
 			if (curStep == 240)
 			{
@@ -4581,6 +4581,56 @@ class PlayState extends MusicBeatState
 				});
 			}
 		}
+
+		if (SONG.song.toLowerCase() == 'releasecool')
+			if (curStep == 262)
+			{
+				dad.animation.play('garTightBars');
+			}
+		if (curStep == 902)
+		{
+			dad.animation.play('garTightBars');
+		}
+		if (curStep == 1862)
+		{
+			dad.animation.play('garTightBars');
+		}
+		if (curStep == 2176)
+		{
+			remove(dad);
+			dad = new Character(dad.x, dad.y, 'garcelloghosty');
+			add(dad);
+		}
+		if (curStep == 2392)
+		{
+			dad.animation.play('coolguy');
+		}
+		
+		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'Fading')
+		{
+			if (curStep == 247)
+			{
+				dad.playAnim('garFarewell', true);
+			}
+		}
+
+		if (dad.curCharacter == 'garcelloghosty' && SONG.song.toLowerCase() == 'Fading')
+		{
+			if (curStep == 240)
+			{
+				new FlxTimer().start(0.1, function(tmr:FlxTimer)
+				{
+					dad.alpha -= 0.05;
+					iconP2.alpha -= 0.05;
+
+					if (dad.alpha > 0)
+					{
+						tmr.reset(0.1);
+					}
+				});
+			}
+		}
+
 		#if FEATURE_LUAMODCHART
 		if (executeModchart && luaModchart != null)
 		{

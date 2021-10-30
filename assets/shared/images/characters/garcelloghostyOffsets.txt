@@ -3,3 +3,5 @@ singUP 0 0
 singRIGHT 0 0
 singLEFT 0 0
 singDOWN 0 0
+garFarewell 0 0
+garcello coolguy 0 0

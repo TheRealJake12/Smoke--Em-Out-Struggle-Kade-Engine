@@ -462,18 +462,15 @@ class Stage extends MusicBeatState
 					swagBacks['bg'] = bg;
 					toAdd.push(bg);
 
-					var smoker:FlxSprite = new FlxSprite(0, 500);
+					var smoker:FlxSprite = new FlxSprite(0, -290);
 					smoker.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
 					smoker.setGraphicSize(Std.int(smoker.width * 1.7));
 					smoker.alpha = 0.3;
 					smoker.animation.addByPrefix('garsmoke', "smokey", 13);
 					smoker.animation.play('garsmoke');
 					smoker.scrollFactor.set(0.7, 0.7);
-					if (FlxG.save.data.distractions)
-					{
-						swagBacks['smoker'] = smoker;
-						toAdd.push(smoker);
-					}
+					swagBacks['smoker'] = smoker;
+					toAdd.push(smoker);
 
 					var stageFront:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('garAlley/garStagealt', 'shared'));
 					stageFront.updateHitbox();
@@ -483,14 +480,14 @@ class Stage extends MusicBeatState
 					swagBacks['stageFront'] = stageFront;
 					toAdd.push(stageFront);
 
-					var corpse:FlxSprite = new FlxSprite(-230, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
+					var corpse:FlxSprite = new FlxSprite(-200, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
 					corpse.antialiasing = FlxG.save.data.antialiasing;
 					corpse.scrollFactor.set(0.9, 0.9);
 					corpse.active = false;
 					swagBacks['corpse'] = corpse;
 					toAdd.push(corpse);
 		
-					var smoke:FlxSprite = new FlxSprite(0, 100);
+					var smoke:FlxSprite = new FlxSprite(0, 0);
 					smoke.frames = Paths.getSparrowAtlas('garAlley/garSmoke', 'shared');
 					smoke.setGraphicSize(Std.int(smoke.width * 1.6));
 					smoke.animation.addByPrefix('garsmoke', "smokey", 15);
@@ -499,12 +496,8 @@ class Stage extends MusicBeatState
 					smoke.animation.addByPrefix('garsmoke', "smokey", 13);
 					smoke.animation.play('garsmoke');
 					smoke.scrollFactor.set(0.7, 0.7);
-					if (FlxG.save.data.distractions)
-					{
-						swagBacks['smoke'] = smoke;
-						toAdd.push(smoke);
-					}
-		
+					swagBacks['smoke'] = smoke;
+					toAdd.push(smoke);
 				}
 			case 'fading':
 				{
@@ -526,12 +519,23 @@ class Stage extends MusicBeatState
 					swagBacks['stageFront'] = stageFront;
 					toAdd.push(stageFront);
 
-					var corpse:FlxSprite = new FlxSprite(-230, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
+					var corpse:FlxSprite = new FlxSprite(-200, 540).loadGraphic(Paths.image('garAlley/gardead', 'shared'));
 					corpse.antialiasing = FlxG.save.data.antialiasing;
 					corpse.scrollFactor.set(0.9, 0.9);
 					corpse.active = false;
 					swagBacks['corpse'] = corpse;
 					toAdd.push(corpse);
+				}
+			case 'garstage':
+				{
+					camZoom = 0.9;
+					curStage = 'garstage';
+					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('garAlley/stage1', 'shared'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
 				}
 			default:
 				{
