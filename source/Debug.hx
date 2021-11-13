@@ -191,12 +191,12 @@ class Debug
 		// Start the log file writer.
 		logFileWriter = new DebugLogWriter(FlxG.save.data.debugLogLevel);
 
-		logInfo("Debug logging initialized. Welcome Fellow Garcello Enthuthiasts.");
+		logInfo("Debug logging initialized. Hello, developer.");
 
 		#if debug
 		logInfo("This is a DEBUG build.");
 		#else
-		logInfo("This is a release(garelo refarnse !11!1) build.");
+		logInfo("This is a RELEASE build.");
 		#end
 		logInfo('HaxeFlixel version: ${Std.string(FlxG.VERSION)}');
 		logInfo('Friday Night Funkin\' version: ${MainMenuState.gameVer}');

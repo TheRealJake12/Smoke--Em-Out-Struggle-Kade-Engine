@@ -23,17 +23,23 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('garAlley/garStage', 'shared'));
-		bg.scale.x *= 1.55;
-		bg.scale.y *= 1.55;
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('credshit/stageback'));
+		bg.scale.x *= 0.75;
+		bg.scale.y *= 0.75;
 		bg.screenCenter();
 		bg.antialiasing = FlxG.save.data.antialiasing;
 		add(bg);
 
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
-			"I am once again saying\nthis is unofficial"
-			 + "\n\nPress ESC to continue"
-			  + "\n\nPress ENTER for the source code for this.",
+			"Your Kade Engine Community is outdated!\nYou are on "
+			+ MainMenuState.kadeEngineVer
+			+ "\nwhile the most recent version is "
+			+ needVer
+			+ "."
+			+ "\n\nWhat's new:\n\n"
+			+ currChanges
+			+ "\n& more changes and bugfixes in the full changelog"
+			+ "\n\nPress Space to view the full changelog and update\nor ESCAPE to ignore this",
 			32);
 
 		if (MainMenuState.nightly != "")
@@ -48,12 +54,23 @@ class OutdatedSubState extends MusicBeatState
 		txt.borderStyle = FlxTextBorderStyle.OUTLINE;
 		txt.screenCenter();
 		add(txt);
+
+		new FlxTimer().start(2, function(tmr:FlxTimer)
+		{
+			FlxTween.color(bg, 2, bg.color, FlxColor.fromString(bgColors[colorRotation]));
+			if (colorRotation < (bgColors.length - 1))
+				colorRotation++;
+			else
+				colorRotation = 0;
+		}, 0);
+
 	}
+
 	override function update(elapsed:Float)
 	{
 		if (controls.ACCEPT && MainMenuState.nightly == "")
 		{
-			fancyOpenURL("https://github.com/TheRealJake12/Smoke--Em-Out-Struggle-Kade-Engine.git");
+			fancyOpenURL("https://github.com/TheRealJake12/Kade-Engine-1.7-Community.git" + needVer);
 		}
 		else if (controls.ACCEPT)
 		{

@@ -7,6 +7,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup;
+import flixel.FlxBasic;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.tweens.FlxTween;
@@ -27,7 +28,6 @@ class StoryMenuState extends MusicBeatState
 	{
 		return [
 			['Headache', 'Nerves', 'Release', 'Fading']
-			
 		];
 	}
 
@@ -44,6 +44,8 @@ class StoryMenuState extends MusicBeatState
 	var txtWeekTitle:FlxText;
 
 	var curWeek:Int = 0;
+
+	var trackedAssets:Array<flixel.FlxBasic> = [];
 
 	var txtTracklist:FlxText;
 
@@ -93,7 +95,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!FlxG.sound.music.playing)
 			{
-				FlxG.sound.playMusic(Paths.music('releasecool'));
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				Conductor.changeBPM(102);
 			}
 		}
@@ -338,6 +340,8 @@ class StoryMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
 				grpWeekText.members[curWeek].startFlashing();
+				unloadAssets();
+
 				grpWeekCharacters.members[1].animation.play('bfConfirm');
 				stopspamming = true;
 			}
@@ -372,22 +376,20 @@ class StoryMenuState extends MusicBeatState
 			PlayState.SONG = Song.conversionChecks(Song.loadFromJson(poop, PlayState.storyPlaylist[0]));
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
-
 			var video:MP4Handler = new MP4Handler();
 
-			if (curWeek == 0 && !isCutscene) // Checks if the current week is garAlley.
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
+			if (curWeek == 0 && !isCutscene)
+				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
-					video.playMP4(Paths.video('intro'));
-					video.finishCallback = function()
 					{
-						LoadingState.loadAndSwitchState(new PlayState());
+						video.playMP4(Paths.video('intro'));
+						video.finishCallback = function()
+						{
+							LoadingState.loadAndSwitchState(new PlayState());
+						}
+						isCutscene = true;
 					}
-					
-					isCutscene = true;
-				}
-			});
+				});
 			else
 			{
 				new FlxTimer().start(1, function(tmr:FlxTimer)
@@ -517,5 +519,19 @@ class StoryMenuState extends MusicBeatState
 
 		if (weekCharacters[curWeek][2] == 'spooky' || weekCharacters[curWeek][2] == 'gf')
 			grpWeekCharacters.members[2].bopHead();
+	}
+
+	override function add(Object:flixel.FlxBasic):flixel.FlxBasic
+	{
+		trackedAssets.insert(trackedAssets.length, Object);
+		return super.add(Object);
+	}
+
+	function unloadAssets():Void
+	{
+		for (asset in trackedAssets)
+		{
+			remove(asset);
+		}
 	}
 }

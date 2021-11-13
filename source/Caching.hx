@@ -11,6 +11,7 @@ import flixel.ui.FlxBar;
 import haxe.Exception;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.FlxBasic;
 #if FEATURE_FILESYSTEM
 import sys.FileSystem;
 import sys.io.File;
@@ -27,6 +28,7 @@ import flixel.math.FlxRect;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.text.FlxText;
+import Discord.DiscordClient;
 
 using StringTools;
 
@@ -46,9 +48,16 @@ class Caching extends MusicBeatState
 	var music = [];
 	var charts = [];
 
+	var trackedAssets:Array<FlxBasic> = [];
+
 	override function create()
 	{
 		FlxG.save.bind('funkin', 'ninjamuffin99');
+
+		#if FEATURE_DISCORD
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("Caching :(", null);
+		#end
 
 		PlayerSettings.init();
 
@@ -65,7 +74,7 @@ class Caching extends MusicBeatState
 		text.alignment = FlxTextAlign.CENTER;
 		text.alpha = 0;
 
-		kadeLogo = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic(Paths.image('dalogo'));
+		kadeLogo = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic(Paths.image('KadeEngineLogoOld'));
 		kadeLogo.x -= kadeLogo.width / 2;
 		kadeLogo.y -= kadeLogo.height / 2 + 100;
 		text.y -= kadeLogo.height / 2 - 125;
@@ -186,6 +195,20 @@ class Caching extends MusicBeatState
 		trace(Assets.cache.hasBitmapData('GF_assets'));
 		#end
 		FlxG.switchState(new TitleState());
+		unloadAssets();
+	}
+	override function add(Object:FlxBasic):FlxBasic
+	{
+		trackedAssets.insert(trackedAssets.length, Object);
+		return super.add(Object);
+	}
+
+	function unloadAssets():Void
+	{
+		for (asset in trackedAssets)
+		{
+			remove(asset);
+		}
 	}
 }
 #end

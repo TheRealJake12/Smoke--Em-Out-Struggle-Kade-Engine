@@ -8,6 +8,7 @@ import flixel.FlxG;
 import openfl.display.FPS;
 import openfl.Lib;
 
+
 class OptionCategory
 {
 	private var _options:Array<Option> = new Array<Option>();
@@ -486,6 +487,8 @@ class Judgement extends Option
 		return false;
 	}
 
+	
+
 	override function getValue():String
 	{
 		return "Safe Frames: "
@@ -516,6 +519,163 @@ class Judgement extends Option
 	}
 }
 
+class MiddleScrollOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.middleScroll = !FlxG.save.data.middleScroll;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return (FlxG.save.data.middleScroll ? "Upscroll Right Side Scroll" : "Upscroll Middle scroll");
+	}
+}
+
+class DMiddleScrollOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.middleDScroll = !FlxG.save.data.middleDScroll;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return (FlxG.save.data.middleDScroll ? "Downscroll Right Side Scroll" : " Downscroll Middlescroll");
+	}
+}
+
+class NotesplashesOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.notesplashes = !FlxG.save.data.notesplashes;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return (FlxG.save.data.notesplashes ? "Notesplashes ON" : "Notesplashes OFF");
+	}
+}
+
+class NewNoteskinOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.NewNotes = !FlxG.save.data.NewNotes;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return (FlxG.save.data.NewNotes?"New Noteskin StepMania" : "Old Noteskin");
+	} // Old Noteskin
+}
+
+class HDNotesOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.HD = !FlxG.save.data.HD;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return (FlxG.save.data.HD ? "HD Notes ON" : "HD Notes OFF");
+	}
+}
+
+class LaneUnderlayOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+		acceptValues = true;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.laneUnderlay = !FlxG.save.data.laneUnderlay;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return (FlxG.save.data.laneUnderlay ? "Lane underlay" : "No lane underlay");
+	}
+
+	override function right():Bool
+	{
+		FlxG.save.data.laneTransparency += 0.1;
+
+		if (FlxG.save.data.laneTransparency < 0)
+			FlxG.save.data.laneTransparency = 0;
+
+		if (FlxG.save.data.laneTransparency > 1)
+			FlxG.save.data.laneTransparency = 1;
+		return true;
+	}
+
+	override function getValue():String
+	{
+		return "Current Lane Underlay transparency: " + HelperFunctions.truncateFloat(FlxG.save.data.laneTransparency, 1);
+	}
+
+	override function left():Bool
+	{
+		FlxG.save.data.laneTransparency -= 0.1;
+
+		if (FlxG.save.data.laneTransparency < 0)
+			FlxG.save.data.laneTransparency = 0;
+
+		if (FlxG.save.data.laneTransparency > 1)
+			FlxG.save.data.laneTransparency = 1;
+
+		return true;
+	}
+}
+
 class FPSOption extends Option
 {
 	public function new(desc:String)
@@ -537,6 +697,8 @@ class FPSOption extends Option
 		return "FPS Counter " + (!FlxG.save.data.fps ? "off" : "on");
 	}
 }
+
+
 
 class ScoreScreen extends Option
 {
@@ -580,9 +742,9 @@ class FPSCapOption extends Option
 
 	override function right():Bool
 	{
-		if (FlxG.save.data.fpsCap >= 290)
+		if (FlxG.save.data.fpsCap >= 420)
 		{
-			FlxG.save.data.fpsCap = 290;
+			FlxG.save.data.fpsCap = 420;
 			(cast(Lib.current.getChildAt(0), Main)).setFPSCap(290);
 		}
 		else
@@ -594,8 +756,8 @@ class FPSCapOption extends Option
 
 	override function left():Bool
 	{
-		if (FlxG.save.data.fpsCap > 290)
-			FlxG.save.data.fpsCap = 290;
+		if (FlxG.save.data.fpsCap > 420)
+			FlxG.save.data.fpsCap = 420;
 		else if (FlxG.save.data.fpsCap < 60)
 			FlxG.save.data.fpsCap = Application.current.window.displayMode.refreshRate;
 		else
@@ -1001,7 +1163,12 @@ class ResetSettings extends Option
 		FlxG.save.data.customStrumLine = null;
 		FlxG.save.data.camzoom = null;
 		FlxG.save.data.scoreScreen = null;
+		FlxG.save.data.middleScroll = null;
+		FlxG.save.data.middleDScroll = null;
 		FlxG.save.data.inputShow = null;
+		FlxG.save.data.NewNotes = null;
+		FlxG.save.data.HD = null;
+
 		FlxG.save.data.optimize = null;
 		FlxG.save.data.cacheImages = null;
 		FlxG.save.data.editor = null;

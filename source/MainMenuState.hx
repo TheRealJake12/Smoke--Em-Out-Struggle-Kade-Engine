@@ -39,11 +39,13 @@ class MainMenuState extends MusicBeatState
 
 	public static var nightly:String = "";
 
-	public static var kadeEngineVer:String = "1.8 Smoke 'Em Out Struggle" + nightly;
-	public static var gameVer:String = "0.2.8";
+	public static var kadeEngineVer:String = "1.3.1 Community" + nightly;
+	public static var gameVer:String = "Kade Engine 1.7";
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+
+	var trackedAssets:Array<Dynamic> = [];
 
 	public static var finishedFunnyMove:Bool = false;
 
@@ -58,12 +60,17 @@ class MainMenuState extends MusicBeatState
 
 		if (!FlxG.sound.music.playing)
 		{
-			FlxG.sound.playMusic(Paths.music('Inst'));
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+		}
+		else if
+		(!FlxG.sound.music.playing)
+		{
+			FlxG.sound.playMusic(Paths.music('optionsmenu'));
 		}
 
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('menuDesat'));
+		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.10;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -241,7 +248,7 @@ class MainMenuState extends MusicBeatState
 	function goToState()
 	{
 		var daChoice:String = optionShit[curSelected];
-
+		unloadAssets();
 		switch (daChoice)
 		{
 			case 'story mode':
@@ -282,5 +289,18 @@ class MainMenuState extends MusicBeatState
 
 			spr.updateHitbox();
 		});
+	}
+	override function add(Object:flixel.FlxBasic):flixel.FlxBasic
+	{
+		trackedAssets.insert(trackedAssets.length, Object);
+		return super.add(Object);
+	}
+
+	function unloadAssets():Void
+	{
+		for (asset in trackedAssets)
+		{
+			remove(asset);
+		}
 	}
 }

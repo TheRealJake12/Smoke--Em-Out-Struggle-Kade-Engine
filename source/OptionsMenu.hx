@@ -17,6 +17,8 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
 
+
+
 class OptionsMenu extends MusicBeatState
 {
 	public static var instance:OptionsMenu;
@@ -24,53 +26,56 @@ class OptionsMenu extends MusicBeatState
 	var selector:FlxText;
 	var curSelected:Int = 0;
 
+	var trackedAssets:Array<Dynamic> = [];
+
 	var options:Array<OptionCategory> = [
 		new OptionCategory("Gameplay", [
 			new DFJKOption(controls),
 			new DownscrollOption("Toggle making the notes scroll down rather than up."),
 			new GhostTapOption("Toggle counting pressing a directional input when no arrow is there as a miss."),
 			new Judgement("Customize your Hit Timings. (LEFT or RIGHT)"),
-			#if desktop new FPSCapOption("Change your FPS Cap."),
-			#end
 			new ScrollSpeedOption("Change your scroll speed. (1 = Chart dependent)"),
 			new AccuracyDOption("Change how accuracy is calculated. (Accurate = Simple, Complex = Milisecond Based)"),
 			new ResetButtonOption("Toggle pressing R to gameover."),
-			new InstantRespawn("Toggle if you instantly respawn after dying."),
 			// new OffsetMenu("Get a note offset based off of your inputs!"),
-			new CustomizeGameplay("Drag and drop gameplay modules to your prefered positions!")
+			new CustomizeGameplay("Drag and drop gameplay modules to your prefered positions!"),
 		]),
 		new OptionCategory("Appearance", [
-			new CamZoomOption("Toggle the camera zoom in-game."),
+			new NotesplashesOption("Adds notesplashes when you hit a Sick! note."),
+			new MiddleScrollOption("Make Sure Downscroll Middlescroll is disabled with this for Middlescroll."),
+			new DMiddleScrollOption("Make Sure Upscroll Middlescroll is disabled with this for Middlescroll."),
 			new StepManiaOption("Sets the colors of the arrows depending on quantization instead of direction."),
 			new AccuracyOption("Display accuracy information on the info bar."),
 			new SongPositionOption("Show the song's current position as a scrolling bar."),
 			new Colour("The color behind icons now fit with their theme. (e.g. Pico = green)"),
 			new NPSDisplayOption("Shows your current Notes Per Second on the info bar."),
-			new RainbowFPSOption("Make the FPS Counter flicker through rainbow colors."),
-			new CpuStrums("Toggle the CPU's strumline lighting up when it hits a note.")
+			new CpuStrums("Toggle the CPU's strumline lighting up when it hits a note."),
 		]),
+		new OptionCategory("Noteskins", [
+			new NewNoteskinOption("Uses a StepMania Noteskin"),
+			new HDNotesOption("Uses some HD noteskin"),
+		]),	
 		new OptionCategory("Performance", [
 			new FPSOption("Toggle the FPS Counter"),
+			#if desktop new FPSCapOption("Change your FPS Cap."),
+			#end
 			new RainbowFPSOption("Make the FPS Counter flicker through rainbow colors."),
 			new InstantRespawn("Instant Respawn but lags hard on low end systems"),
+			new CamZoomOption("Toggle the camera zoom in-game."),
 			new DistractionsAndEffectsOption("Removes/Minimizes Effects used."),
 			new EditorRes("Performance Using the Chart Editior greatly increased when this is off."),
 			new AntialiasingOption("Anti-Aliasing makes things look smoother but uses a bit of performance."),
 			new Optimization("Nothing but Your Strumline is visible. Best Performance."),
-			new GraphicLoading("Caches every character in assets/shared/characters. Loading times greatly decreased. (HIGH MEMORY!!!)")
+			new GraphicLoading("Caches every character in assets/shared/characters. Loading times greatly decreased. (HIGH MEMORY!!!)"),
 		]),
-		 //lol I took all the other options and put them in their own catagory -1
-		//have fun coding-2
-		//u too thanks for the help im spid-1 
-		//i'm spid... lmao -2
-		//im leaving that here -1
+		
 		new OptionCategory("Misc", [
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
 			new MissSoundsOption("Toggle miss sounds playing when you don't hit a note."), 
 			new ScoreScreen("Show the score screen after the end of a song"),
 			new ShowInput("Display every single input on the score screen."),
-			new BotPlay("Showcase your charts and mods with autoplay.")
+			new BotPlay("Showcase your charts and mods with autoplay."),
 		]),
 
 		new OptionCategory("Saves and Data", [
@@ -97,6 +102,9 @@ class OptionsMenu extends MusicBeatState
 		clean();
 		instance = this;
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
+
+			FlxG.sound.playMusic(Paths.music('optionsmenu'));
+			FlxG.sound.music.time = 7050;
 
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
@@ -153,7 +161,11 @@ class OptionsMenu extends MusicBeatState
 		{
 			if (controls.BACK && !isCat)
 			{
+				unloadAssets();
 				FlxG.switchState(new MainMenuState());
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.sound.music.time = 9400;
+
 			}
 			else if (controls.BACK)
 			{
@@ -337,6 +349,19 @@ class OptionsMenu extends MusicBeatState
 				item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
 			}
+		}
+	}
+	override function add(Object:flixel.FlxBasic):flixel.FlxBasic
+	{
+		trackedAssets.insert(trackedAssets.length, Object);
+		return super.add(Object);
+	}
+
+	function unloadAssets():Void
+	{
+		for (asset in trackedAssets)
+		{
+			remove(asset);
 		}
 	}
 }
