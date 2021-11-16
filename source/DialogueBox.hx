@@ -47,10 +47,8 @@ class DialogueBox extends FlxSpriteGroup
 		switch (PlayState.SONG.song.toLowerCase())
 		{
 			case 'fading':
-				sound = new FlxSound().loadEmbedded(Paths.music('city_ambience', 'shared'), true);
-				sound.volume = 0;
-				FlxG.sound.list.add(sound);
-				sound.fadeIn(1, 0, 0.8);
+				FlxG.sound.playMusic(Paths.music('city_ambience'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
@@ -147,7 +145,7 @@ class DialogueBox extends FlxSpriteGroup
 			portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 			portraitLeft.animation.addByPrefix('enter', 'gar Default', 24, false);
 			// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
-			portraitLeft.antialiasing = true;
+			portraitLeft.antialiasing = FlxG.save.data.antialiasing;
 			portraitLeft.updateHitbox();
 			portraitLeft.scrollFactor.set();
 			add(portraitLeft);
@@ -159,7 +157,7 @@ class DialogueBox extends FlxSpriteGroup
 			portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 			portraitLeft.animation.addByPrefix('enter', 'gar Nervous', 24, false);
 			// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
-			portraitLeft.antialiasing = true;
+			portraitLeft.antialiasing = FlxG.save.data.antialiasing;
 			portraitLeft.updateHitbox();
 			portraitLeft.scrollFactor.set();
 			add(portraitLeft);
@@ -171,7 +169,7 @@ class DialogueBox extends FlxSpriteGroup
 			portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 			portraitLeft.animation.addByPrefix('enter', 'gar Ghost', 24, false);
 			// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
-			portraitLeft.antialiasing = true;
+			portraitLeft.antialiasing = FlxG.save.data.antialiasing;
 			portraitLeft.updateHitbox();
 			portraitLeft.scrollFactor.set();
 			add(portraitLeft);
@@ -183,7 +181,7 @@ class DialogueBox extends FlxSpriteGroup
 			portraitLeft.frames = Paths.getSparrowAtlas('garAlley/gardialogue', 'shared');
 			portraitLeft.animation.addByPrefix('enter', 'gar Dippy', 24, false);
 			// portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
-			portraitLeft.antialiasing = true;
+			portraitLeft.antialiasing = FlxG.save.data.antialiasing;
 			portraitLeft.updateHitbox();
 			portraitLeft.scrollFactor.set();
 			add(portraitLeft);
@@ -201,17 +199,13 @@ class DialogueBox extends FlxSpriteGroup
 			add(portraitRight);
 			portraitRight.visible = false;
 		}
-		else if (PlayState.SONG.song.toLowerCase() == 'headache'
-			|| PlayState.SONG.song.toLowerCase() == 'nerves'
-			|| PlayState.SONG.song.toLowerCase() == 'release'
-			|| PlayState.SONG.song.toLowerCase() == 'fading'
-			|| PlayState.SONG.song.toLowerCase() == 'releasecool')
+		else if (PlayState.SONG.song.toLowerCase() == 'headache'|| PlayState.SONG.song.toLowerCase() == 'nerves'|| PlayState.SONG.song.toLowerCase() == 'release'|| PlayState.SONG.song.toLowerCase() == 'fading')
 		{
 			portraitRight = new FlxSprite(770, 200);
 			portraitRight.frames = Paths.getSparrowAtlas('garAlley/bf_norm', 'shared');
 			portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait Enter', 24, false);
 			// portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.4));
-			portraitRight.antialiasing = true;
+			portraitRight.antialiasing = FlxG.save.data.antialiasing;
 			portraitRight.updateHitbox();
 			portraitRight.scrollFactor.set();
 			add(portraitRight);
@@ -236,7 +230,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		if (PlayState.SONG.song.toLowerCase() == 'headache'|| PlayState.SONG.song.toLowerCase() == 'nerves'|| PlayState.SONG.song.toLowerCase() == 'release'|| PlayState.SONG.song.toLowerCase() == 'fading')
 		{
-			handSelect.antialiasing = true;
+			handSelect.antialiasing = FlxG.save.data.antialiasing;
 		}
 
 		if (!talkingRight)

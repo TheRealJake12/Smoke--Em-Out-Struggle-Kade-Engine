@@ -68,7 +68,6 @@ class OptionsMenu extends MusicBeatState
 			new Optimization("Nothing but Your Strumline is visible. Best Performance."),
 			new GraphicLoading("Caches every character in assets/shared/characters. Loading times greatly decreased. (HIGH MEMORY!!!)"),
 		]),
-		
 		new OptionCategory("Misc", [
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
@@ -77,14 +76,13 @@ class OptionsMenu extends MusicBeatState
 			new ShowInput("Display every single input on the score screen."),
 			new BotPlay("Showcase your charts and mods with autoplay."),
 		]),
-
 		new OptionCategory("Saves and Data", [
 			#if desktop // new ReplayOption("View saved song replays."),
 			#end
 			new ResetScoreOption("Reset your score on all songs and weeks. This is irreversible!"),
 			new LockWeeksOption("Reset your story mode progress. This is irreversible!"),
-			new ResetSettings("Reset ALL your settings. This is irreversible!")
-		])
+			new ResetSettings("Reset ALL your settings. This is irreversible!"),
+		]),
 	];
 
 	public var acceptInput:Bool = true;
@@ -104,7 +102,6 @@ class OptionsMenu extends MusicBeatState
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
 
 			FlxG.sound.playMusic(Paths.music('optionsmenu'));
-			FlxG.sound.music.time = 7050;
 
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));

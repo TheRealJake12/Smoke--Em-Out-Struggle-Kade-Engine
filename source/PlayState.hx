@@ -1,5 +1,6 @@
 package;
 
+import flixel.system.debug.log.LogStyle;
 #if FEATURE_LUAMODCHART
 import LuaClass.LuaCamera;
 import LuaClass.LuaCharacter;
@@ -1029,7 +1030,7 @@ class PlayState extends MusicBeatState
 				case 'release':
 					garIntro(doof);
 				case 'fading':
-					garIntro(doof);
+					schoolIntro(doof);
 				case 'senpai':
 					schoolIntro(doof);
 				case 'roses':
@@ -1877,7 +1878,7 @@ class PlayState extends MusicBeatState
 					}
 			}
 
-			if (!FlxG.save.data.middleDScroll == true) // Fuck Downscroll Users for making a seperate thing
+			if (!FlxG.save.data.middleDScroll) // Fuck Downscroll Users for making a seperate thing
 			{
 				babyArrow.x = -273;
 				babyArrow.y = 600;
@@ -3459,7 +3460,7 @@ class PlayState extends MusicBeatState
 
 		if (offsetTesting)
 		{
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			FlxG.sound.playMusic(Paths.music('releasecool'));
 			offsetTesting = false;
 			LoadingState.loadAndSwitchState(new OptionsMenu());
 			clean();
@@ -3518,7 +3519,7 @@ class PlayState extends MusicBeatState
 					else
 					{
 						unloadAssets();
-						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.sound.playMusic(Paths.music('releasecool'));
 						Conductor.changeBPM(102);
 						FlxG.switchState(new StoryMenuState());
 						clean();
@@ -3575,18 +3576,18 @@ class PlayState extends MusicBeatState
 					{
 						var video:MP4Handler = new MP4Handler();
 
+						trace("MP4 Loaded");
+
 						video.playMP4(Paths.video('dies'));
 						video.finishCallback = function()
 						{
 							LoadingState.loadAndSwitchState(new PlayState());
-							unloadAssets();
 						}
 						isCutscene = true;
 					}
 					else
 					{
 						LoadingState.loadAndSwitchState(new PlayState());
-						unloadAssets();
 					}
 					prevCamFollow = camFollow;
 
