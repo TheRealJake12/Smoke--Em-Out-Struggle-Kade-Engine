@@ -4577,7 +4577,29 @@ class PlayState extends MusicBeatState
 			{
 				dad.playAnim('garFarewell');
 			}
-
+		if (SONG.song.toLowerCase() == 'releasecool')
+			if (curStep == 262)
+			{
+				dad.animation.play('garTightBars');
+			}
+			if (curStep == 902)
+			{
+				dad.animation.play('garTightBars');
+			}
+			if (curStep == 1862)
+			{
+				dad.animation.play('garTightBars');
+			}
+			if (curStep == 2176)
+			{
+				remove(dad);
+				dad = new Character(dad.x, dad.y, 'garcelloghosty');
+				add(dad);
+			}
+			if (curStep == 2392)
+			{
+				dad.animation.play('coolguy');
+			}
 		#if FEATURE_LUAMODCHART
 		if (executeModchart && luaModchart != null)
 		{

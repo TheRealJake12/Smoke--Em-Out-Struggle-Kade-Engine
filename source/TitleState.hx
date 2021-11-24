@@ -270,7 +270,7 @@ class TitleState extends MusicBeatState
 			
 
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
-			FlxG.switchState(new MainMenuState());
+			FlxG.switchState(new DathingState());
 			
 		}
 
